@@ -44,7 +44,46 @@ h1, h2, h3 {
     display: none;
 }
 
+@media (min-width: 431px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 800px;
+        max-height: 600px;
+        border-radius: 1rem;
+        box-sizing: border-box;
+    }
+    main > .imagem-desktop {
+        grid-column: 1 / 1;
+        grid-row: 1 / 6;
+        border-radius: 1rem 0 0 1rem;
+    }
+    main > img {
+        width: 400px;
+    }
+    main > .imagem-mobile {
+        display: none;
+    }
+    main > *:not(:first-child):not(.imagem-desktop):not(.imagem-mobile) {
+        grid-column: 2 / 2; /* Todos os outros elementos ocupam a segunda 
+        coluna */
+        grid-template-rows: 1 / 6;
+        display: flex;
+        margin: 2rem;
+    }
+    main > button {
+        color: white;
+        border: none;
+        background: hsl(158, 36%, 37%);
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+}
+
 @media (max-width: 430px) {
+    .imagem-desktop {
+        display: none;
+    }
     main {
         display: flex;
         flex-direction: column;
@@ -82,6 +121,11 @@ h1, h2, h3 {
     }
     main > .precos > *:not(:first-child){
         text-decoration: line-through;
+        font-family: "Montserrat", sans-serif;
+        color: black;
+        font-weight: normal;
+        font-size: 0.8rem;
+        padding-top: 0.4rem;
     }
     main > button {
         padding: 1rem;
